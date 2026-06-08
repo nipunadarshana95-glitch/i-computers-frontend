@@ -20,7 +20,7 @@ export default function AdminUsersPage() {
                 return;
             }
 
-           
+
             const cleanToken = token.replace(/["']/g, "").trim();
 
             axios
@@ -36,11 +36,11 @@ export default function AdminUsersPage() {
                 })
                 .catch((error) => {
                     console.error("API Request Error:", error.response || error);
-                    
-                    
-                    setLoaded(true); 
 
-                   
+
+                    setLoaded(true);
+
+
                     if (error.response?.status === 401) {
                         console.warn("Unauthorized! Check if your backend middleware accepts this token.");
                     }
@@ -99,9 +99,9 @@ export default function AdminUsersPage() {
                                                 try {
                                                     const rawToken = localStorage.getItem("token") || "";
                                                     const tokenClean = rawToken.replace(/["']/g, "").trim();
-                                                    
+
                                                     await axios.put(
-                                                        `${import.meta.env.VITE_BACKEND_URL}/users/toggle-block/${item.email}`,
+                                                        `https://computers-backend.onrender.com/users/toggle-block/${item.email}`,
                                                         { isBlocked: !item.isBlocked },
                                                         { headers: { Authorization: `Bearer ${tokenClean}` } }
                                                     );

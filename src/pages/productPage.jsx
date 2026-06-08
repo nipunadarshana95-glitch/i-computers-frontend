@@ -9,8 +9,7 @@ export default function ProductPage() {
 
     useEffect(() => {
         if (!loaded) {
-            axios
-                .get(import.meta.env.VITE_BACKEND_URL + "/products")
+            axios.get('https://computers-backend.onrender.com/products')
                 .then((response) => {
                     console.log(response.data);
                     setProducts(response.data);
@@ -35,8 +34,7 @@ export default function ProductPage() {
                     onChange={async (e) => {
                         if (e.target.value == "") {
                             setLoaded(false);
-                            await axios
-                                .get(import.meta.env.VITE_BACKEND_URL + "/products")
+                            await axios.get('https://computers-backend.onrender.com/products')
                                 .then((response) => {
                                     console.log(response.data);
                                     setProducts(response.data);
@@ -44,12 +42,7 @@ export default function ProductPage() {
                                 });
                             setLoaded(true);
                         } else {
-                            await axios
-                                .get(
-                                    import.meta.env.VITE_BACKEND_URL +
-                                        "/products/search/" +
-                                        e.target.value
-                                )
+                            awaitaxios.get('https://computers-backend.onrender.com/products/search?key=' + e.target.value)
                                 .then((response) => {
                                     console.log(response.data);
                                     setProducts(response.data);
