@@ -25,7 +25,7 @@ export default function UserData(){
             {
                 user?
                 <div className="w-[150px] flex flex-row">
-                    <img src={user.image} referrerpolicy="no-referrer" className="w-[50px] rounded-full h-[50px]"/>
+                    <img src={user.image} referrerPolicy="no-referrer" className="w-[50px] rounded-full h-[50px]"/>
                     <select className="bg-transparent outline-none ml-2 mt- text-white" value={selectedOption}
                      onChange={
                         (e)=>{

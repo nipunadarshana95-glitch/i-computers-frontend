@@ -10,13 +10,15 @@ import ContactPage from "./contactPage";
 
 export default function HomePage(){
     return(
-        <div className="w-full h-full overflow-y-scroll max-h-full">
-            <Header/>
+        <div className="w-full h-full overflow-y-scroll max-h-full bg-[#0b0f19]">
+            {/* Keeping the Header globally here so it stays on every single page */}
+            <Header /> 
+            
             <div className="w-full min-h-[calc(100%-100px)]">
                 <Routes>
                     <Route path="/" element={<Home/>} />
+                    <Route path="/about" element={<Home/>} /> 
                     <Route path="/products" element={<ProductPage />} />
-                    <Route path="/about" element={<Home />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/overview/:productID" element={<ProductOverview/>} />
                     <Route path="/cart" element={<CartPage />} />
